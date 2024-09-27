@@ -12,9 +12,9 @@ const UserScreen: React.FC = () => {
   const { loading, error, users, refetch } = useUsers(userType);
   const [refreshing, setRefreshing] = useState<boolean>(false);
   
-  console.log("🚀 ~ users:", users)
+  // console.log("🚀 ~ users:", users)
 
-  if (loading) return <ActivityIndicator />;
+  if (loading) return <ActivityIndicator testID='loading-indicator' />;
   if (error) return <Text>Error: {error.message}</Text>;
 
   const filteredUsers = filterUser?.length > 0 ? filterUser.filter((e:any) =>
@@ -28,12 +28,6 @@ const UserScreen: React.FC = () => {
     setFilterUser(filterData)
   }
 
-  // const onRefresh = useCallback(() => {
-  //   setRefreshing(true);
-  //   refetch() // Fetch fresh data when refreshing
-  //     .then(() => setRefreshing(false))
-  //     .catch(() => setRefreshing(false)); // Handle errors as needed
-  // }, [refetch]);
 
   const onRefresh = () => {
     setRefreshing(true);

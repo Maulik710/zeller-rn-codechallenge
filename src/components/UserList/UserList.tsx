@@ -18,7 +18,7 @@ const UserList: React.FC<UserListProps> = ({ users,type,refreshing,onRefresh }) 
     keyExtractor={(item) => item.id}
     renderItem={({ item }) => <UserListItem user={item} />}
     refreshControl={
-      <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      <RefreshControl testID='refresh-control' refreshing={refreshing} onRefresh={onRefresh} />
     }
   />
   </View>
